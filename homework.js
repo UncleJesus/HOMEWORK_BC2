@@ -120,14 +120,137 @@
 // !MODULE 2
 
 // ? Задание 1
-let a = 123;
-console.log(a);
-const getItemsString = function (array) {
-  // Write code under this line
-  array.join(` `);
-  console.log(`asfasffs`);
-  return;
-};
 
-console.log(getItemsString(["Mango", "Poly", "Ajax", "Lux", "Jay", "Kong"]));
-console.log(`sqafasfaf`);
+// const getItemsString = function (array) {
+//   // Write code under this line
+//   let result = ``;
+//   for (let i = 0; i < array.length; i++) {
+//     result += `${i + 1} - ${array[i]}\n`;
+//   }
+//   return result;
+// };
+
+// console.log(getItemsString(["Mango", "Poly", "Ajax", "Lux", "Jay", "Kong"]));
+// getItemsString([5, 10, 15]);
+
+// ? Задание 2
+
+// const calculateEngravingPrice = (message = "", pricePerWord = 0) =>
+//   (pricePerWord = pricePerWord * message.split(` `).length); // Write code in this line
+
+// console.log(
+//   calculateEngravingPrice(
+//     "Proin sociis natoque et magnis parturient montes mus",
+//     10
+//   )
+// ); // 80
+
+// ? Задание 3
+
+// function findLongestWord(string) {
+//   let stringLength = string.split(` `);
+//   let longest = 0;
+//   let word = ``;
+//   for (let i = 0; i < stringLength.length; i++) {
+//     if (longest < stringLength[i].length) {
+//       longest = stringLength[i].length;
+//       word = stringLength[i];
+//     }
+//   }
+//   return word;
+// }
+// console.log(findLongestWord("The quick brown fox jumped over the lazy dog"));
+// // 'jumped'
+
+// console.log(findLongestWord("Google do a roll"));
+// // 'Google'
+
+// console.log(findLongestWord("May the force be with you"));
+// // 'force'
+
+// ? Задание 4
+
+function formatString(string, maxLength = 40) {
+  // Write code under this line
+  let stringLength = string.length;
+  let updatedString = ``;
+
+  if (stringLength <= maxLength) {
+    return `${string}`;
+  } else {
+    updatedString = string.slice(0, maxLength);
+    return `${updatedString}...`;
+  }
+}
+
+console.log(formatString("Curabitur ligula sapien, tincidunt non."));
+// 'Curabitur ligula sapien, tincidunt non.'
+
+console.log(formatString("Vestibulum facilisis, purus nec pulvinar iaculis."));
+//'Vestibulum facilisis, purus nec pulvinar...'
+
+console.log(
+  formatString("Vestibulum facilisis, purus nec pulvinar iaculis.", 30)
+);
+// 'Vestibulum facilisis, purus ne...'
+
+// ? Задание 5
+// function checkForSpam(str) {
+//   "use strict";
+//   // Write code under this line
+//   let lowerString = str.toLowerCase();
+//   return lowerString.includes(`spam`) || lowerString.includes(`sale`);
+// }
+
+// console.log(checkForSpam("Latest technology news")); // false
+
+// console.log(checkForSpam("JavaScript weekly newsletter")); // false
+
+// console.log(checkForSpam("Get best sale offers now!")); // true
+// console.log(checkForSpam("[SPAM] How to earn fast money?")); // true
+
+// ? Задание 6
+// function mapArray(array) {
+//   "use strict";
+//   const numbers = new Array(array.length);
+//   for (let i = 0; i < array.length; i += 1) {
+//     // Write code under this line
+//     numbers[i] = array[i] * 10;
+//   }
+//   return numbers;
+// }
+
+// console.log(mapArray([-2, 0, 2]));
+// // [-20, 0, 20]
+
+// console.log(mapArray([-2.5, 0, 2.5]));
+// // [-25, 0, 25]
+
+// ? Задание 7
+
+function filterArray(array) {
+  "use strict";
+  const numbers = [];
+  for (let i = 0; i < array.length; i += 1) {
+    // Write code under this line
+    if (Number.isFinite(array[i])) {
+      numbers += array[i];
+    }
+  }
+  return numbers;
+}
+
+console.log(filterArray([-2, 0, 2]));
+// [-2, 0, 2]
+
+console.log(filterArray([1, NaN, Infinity]));
+// [1]
+
+console.log(filterArray([0, -0, 100, "100"]));
+// [0, 0, 100]
+
+console.log(filterArray([undefined, false, null, [], 1]));
+// [1]
+
+console.log(filterArray([{}, () => {}, 2]));
+// [2]

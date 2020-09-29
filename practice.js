@@ -107,3 +107,77 @@
 // arr.push(4);
 // console.log(newArr);
 // console.log(arr);
+
+// !EX
+
+// const fn = function (n) {
+//   return n;
+// };
+// const res = fn(1);
+// console.log(res);
+
+// !EX
+
+// const fn = function (a = 0, b = 0) {
+//   return Math.pow(a, b);
+// };
+// const res = fn(2);
+// console.log(res);
+
+// !EX
+
+// const createPersone = function (name, profession, experience, sex, status) {
+//   return {
+//     name: name,
+//     profession: profession,
+//     experience: experience,
+//     sex: sex,
+//     status: status,
+//   };
+// };
+// let john = createPersone(`John`, `Loh`, ` 5 Years`, ` Male`, `Lonely`);
+// console.log(john);
+
+// !EX
+// const tupaArgumenti = function () {
+//   for (let el of arguments) {
+//     console.log(el);
+//   }
+// };
+// tupaArgumenti(1, 2, 3, 4, 5, 6, 7, 87, 8, 6, 4);
+// tupaArgumenti(2, 3, 45, 5, 65, 65, 51, 5, 125, 15, 15);
+
+// !EX
+
+// const fn = function (...arg) {
+//   console.log(arg.join(` `));
+// };
+// fn(1, 2, 32, 24, 24, 1, 5, 251, 2);
+
+// !EX
+// const fn = function (n, ...arg) {
+//   for (let i = 0; i < arg.length; i++) {
+//     arg[i] = arg[i] * n;
+//   }
+//   console.log(arg);
+// };
+// fn(2, 32, 24, 24, 1, 5, 251, 2);
+
+// !EX
+// let total = 1000;
+// const withdraw = function (amount, balance) {
+//   if (amount === 0) {
+//     console.log(`Введите число больше нуля`);
+//     return;
+//   }
+//   if (amount > balance) {
+//     console.log(`Недостаточно средств`);
+//     return;
+//   }
+//   total = balance - amount;
+//   console.log(`Ваш баланс - ${total}`);
+// };
+
+// withdraw(0, total);
+// withdraw(100, total);
+// withdraw(400, total);
