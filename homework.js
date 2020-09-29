@@ -1,4 +1,6 @@
-// --------------------Задание 1
+// !MODULE 1
+
+//?  --------------------Задание 1
 
 // const name = "«Генератор защитного поля»"; // Write code on this line
 // let price = 1000; // Write code on this line
@@ -12,7 +14,7 @@
 // // console.log(secondMessage);
 // // 'Выбран «Генератор защитного поля», цена за штуку 2000 кредитов'
 
-// --------------------Задание 2
+//?  --------------------Задание 2
 
 // const invoice = 150;
 // const stock = 100;
@@ -26,7 +28,7 @@
 //   console.log(message);
 // }
 
-// --------------------Задание 3
+// ?  --------------------Задание 3
 // const userPassword = "jqueryismyjam";
 
 // const ADMIN_PASSWORD = "jqueryismyjam";
@@ -49,7 +51,7 @@
 //   console.log(message);
 // }
 
-// --------------------Задание 4
+//  ?  --------------------Задание 4
 // const orderPieces = 7;
 // const credits = 23580;
 // const pricePerDroid = 3000;
@@ -69,7 +71,7 @@
 // }
 // console.log(message);
 
-// --------------------Задание 5
+// ?   --------------------   Задание 5
 
 // const countryName = prompt(`Введите страну`);
 
@@ -114,3 +116,18 @@
 // console.log(message);
 
 // Ты успешно завершил домашнее задание 1-го модуля!
+
+// !MODULE 2
+
+// ? Задание 1
+let a = 123;
+console.log(a);
+const getItemsString = function (array) {
+  // Write code under this line
+  array.join(` `);
+  console.log(`asfasffs`);
+  return;
+};
+
+console.log(getItemsString(["Mango", "Poly", "Ajax", "Lux", "Jay", "Kong"]));
+console.log(`sqafasfaf`);
