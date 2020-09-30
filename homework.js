@@ -170,28 +170,28 @@
 
 // ? Задание 4
 
-function formatString(string, maxLength = 40) {
-  // Write code under this line
-  let stringLength = string.length;
-  let updatedString = ``;
+// function formatString(string, maxLength = 40) {
+//   // Write code under this line
+//   let stringLength = string.length;
+//   let updatedString = ``;
 
-  if (stringLength <= maxLength) {
-    return `${string}`;
-  } else {
-    updatedString = string.slice(0, maxLength);
-    return `${updatedString}...`;
-  }
-}
+//   if (stringLength <= maxLength) {
+//     return `${string}`;
+//   } else {
+//     updatedString = string.slice(0, maxLength);
+//     return `${updatedString}...`;
+//   }
+// }
 
-console.log(formatString("Curabitur ligula sapien, tincidunt non."));
-// 'Curabitur ligula sapien, tincidunt non.'
+// console.log(formatString("Curabitur ligula sapien, tincidunt non."));
+// // 'Curabitur ligula sapien, tincidunt non.'
 
-console.log(formatString("Vestibulum facilisis, purus nec pulvinar iaculis."));
-//'Vestibulum facilisis, purus nec pulvinar...'
+// console.log(formatString("Vestibulum facilisis, purus nec pulvinar iaculis."));
+// //'Vestibulum facilisis, purus nec pulvinar...'
 
-console.log(
-  formatString("Vestibulum facilisis, purus nec pulvinar iaculis.", 30)
-);
+// console.log(
+//   formatString("Vestibulum facilisis, purus nec pulvinar iaculis.", 30)
+// );
 // 'Vestibulum facilisis, purus ne...'
 
 // ? Задание 5
@@ -228,29 +228,149 @@ console.log(
 
 // ? Задание 7
 
-function filterArray(array) {
-  "use strict";
-  const numbers = [];
-  for (let i = 0; i < array.length; i += 1) {
-    // Write code under this line
-    if (Number.isFinite(array[i])) {
-      numbers += array[i];
-    }
-  }
-  return numbers;
+// function filterArray(array) {
+//   "use strict";
+//   const numbers = [];
+//   for (let i = 0; i < array.length; i += 1) {
+//     // Write code under this line
+//     if (Number.isFinite(array[i])) {
+//       numbers.push(array[i]);
+//     }
+//   }
+//   return numbers;
+// }
+
+// console.log(filterArray([-2, 0, 2]));
+// // // [-2, 0, 2]
+
+// console.log(filterArray([1, NaN, Infinity]));
+// // // [1]
+
+// console.log(filterArray([0, -0, 100, "100"]));
+// // // [0, 0, 100]
+
+// console.log(filterArray([undefined, false, null, [], 1]));
+// // // [1]
+
+// console.log(filterArray([{}, () => {}, 2]));
+// // [2]
+
+// ? Задание 8
+// function reduceArray(array) {
+//   "use strict";
+
+//   let total = 0;
+//   // Write code under this line
+//   if (array !== []) {
+//     for (let i = 0; i < array.length; i++) {
+//       total += array[i];
+//     }
+//   }
+//   return total;
+// }
+
+// console.log(reduceArray([1, 2, 3]));
+// // 6
+
+// console.log(reduceArray([-2, 0, 2]));
+// // 0
+
+// console.log(reduceArray([1, 2, 2.5]));
+// // 5.5
+
+// ? Задание 9
+
+// function isLoginValid(login, min = 4, max = 16) {
+//   // Write code under this line
+//   if (login.length >= min && login.length <= max) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
+// function isLoginUnique(allLogins, login) {
+//   "use strict";
+//   // Write code under this line
+//   for (let i = 0; i < allLogins.length; i += 1) {
+//     return allLogins.includes(login);
+//   }
+// }
+
+// function addLogin(allLogins, login) {
+//   "use strict";
+//   const SUCCESS = "Логин успешно добавлен!";
+//   const REFUSAL = "Такой логин уже используется!";
+//   const ERROR = "Ошибка! Логин должен быть размером от 4 до 16 символов";
+//   let message;
+//   // Write code under this line
+//   for (let i = 0; i < allLogins.length; i += 1) {
+//     if (isLoginUnique(allLogins, login)) {
+//       return REFUSAL;
+//     } else if (!isLoginValid(login)) {
+//       return ERROR;
+//     } else {
+//       allLogins.push(login);
+//       return (message = SUCCESS);
+//     }
+//   }
+// }
+
+// const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
+
+// console.log(addLogin(logins, "Ajax"));
+// // 'Логин успешно добавлен!'
+
+// console.log(addLogin(logins, "robotGoogles"));
+// // 'Такой логин уже используется!'
+
+// console.log(addLogin(logins, "Zod"));
+// // 'Ошибка! Логин должен быть от 4 до 16 символов'
+
+// console.log(addLogin(logins, "jqueryisextremelyfast"));
+// // 'Ошибка! Логин должен быть от 4 до 16 символов'
+
+// ? Задание 9  КРАТКОЕ РЕШЕНИЕ
+
+function isLoginValid(login, min = 4, max = 16) {
+  // Write code under this line
+  return login.length >= min && login.length <= max;
 }
 
-console.log(filterArray([-2, 0, 2]));
-// [-2, 0, 2]
+function isLoginUnique(allLogins, login) {
+  "use strict";
+  // Write code under this line
+  return !allLogins.includes(login);
+}
 
-console.log(filterArray([1, NaN, Infinity]));
-// [1]
+function addLogin(allLogins, login) {
+  "use strict";
+  const SUCCESS = "Логин успешно добавлен!";
+  const REFUSAL = "Такой логин уже используется!";
+  const ERROR = "Ошибка! Логин должен быть размером от 4 до 16 символов";
+  let message;
+  // Write code under this line
+  if (isLoginValid(login) === false) {
+    message = ERROR;
+  } else if (isLoginUnique(allLogins, login) === false) {
+    message = REFUSAL;
+  } else {
+    allLogins.push(login);
+    message = SUCCESS;
+  }
+  return message;
+}
 
-console.log(filterArray([0, -0, 100, "100"]));
-// [0, 0, 100]
+const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
 
-console.log(filterArray([undefined, false, null, [], 1]));
-// [1]
+// console.log(addLogin(logins, 'Ajax'));
+// 'Логин успешно добавлен!'
 
-console.log(filterArray([{}, () => {}, 2]));
-// [2]
+// console.log(addLogin(logins, 'robotGoogles'));
+// 'Такой логин уже используется!'
+
+// console.log(addLogin(logins, 'Zod'));
+// 'Ошибка! Логин должен быть от 4 до 16 символов'
+
+// console.log(addLogin(logins, 'jqueryisextremelyfast'));
+// 'Ошибка! Логин должен быть от 4 до 16 символов'
