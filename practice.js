@@ -181,3 +181,549 @@
 // withdraw(0, total);
 // withdraw(100, total);
 // withdraw(400, total);
+
+// !EX
+
+//! FizzBuzz
+// Одна из самых популярных на собеседованиях задач.
+// Постановка
+// Требуется написать функцию, выводящую в консоль числа от 1 до n,
+// где n — это целое число, которая функция принимает в качестве параметра, с такими условиями:
+// вывод fizz вместо чисел, кратных 3;
+// вывод buzz вместо чисел, кратных 5;
+// вывод fizzbuzz вместо чисел, кратных как 3, так и 5.
+
+// const fizzBuzz = function (n) {
+//   for (i = 1; i <= n; i += 1) {
+//     if (i % 3 === 0 && i % 5 === 0) {
+//       console.log(`fizzbuzz`);
+//     } else if (0 === i % 3) {
+//       console.log(`fizz`);
+//     } else if (i % 5 === 0) {
+//       console.log(`buzz`);
+//     } else {
+//       console.log(i);
+//     }
+//   }
+// };
+// fizzBuzz(25);
+
+// !EX
+// У нас есть объект, в котором хранятся зарплаты нашей команды:
+// let sum = 0;
+
+// let salaries = {
+//   John: 100,
+//   Ann: 160,
+//   Pete: 130,
+// };
+// for (let key in salaries) {
+//   sum += salaries[key];
+// }
+
+// console.log(sum);
+
+// Напишите код для суммирования всех зарплат и сохраните результат в переменной sum. Должно получиться 390.
+
+// Если объект salaries пуст, то результат должен быть 0.
+
+// !EX
+// Создайте функцию multiplyNumeric(obj), которая умножает все числовые свойства объекта obj на 2.
+
+// const multiplyNumeric = function multiplyNumeric(obj) {
+//   for (let key in obj) {
+//     if (obj[key] === NaN) {
+//       console.log(`Это не номер`);
+//       return;
+//     } else {
+//       let allSum = 0;
+//       allSum = obj[key] * 2;
+//       console.log(allSum);
+//     }
+//   }
+// };
+// let menu = {
+//   width: 200,
+//   height: 300,
+//   title: "My menu",
+//   a: 1,
+//   multiplyNumeric,
+// };
+// multiplyNumeric(menu);
+
+// !EX
+// Дан объект {name: 'Петр', 'surname': 'Петров', 'age': '20 лет', }.
+// Запишите соответствующие значения в переменные name, surname и age.
+// Сделайте так, чтобы, если какое-то значение не задано - оно принимало
+//  следующее значение по умолчанию: {name: 'Аноном', 'surname': 'Анонимович', 'age': '? лет'}.
+// let person = {
+//   name: "Петр",
+//   surname: "Петров",
+//   age: "20 лет",
+// };
+
+// !EX
+
+// let car = {
+//   speed: 0,
+//   color: `black`,
+//   isEngineOn: false,
+//   isLightsOn: false,
+//   speedOn(n) {
+//     if (car.isEngineOn === true) {
+//       car.speed += n;
+//     } else {
+//       console.log(`Заведите машину`);
+//     }
+//   },
+//   speedOf(n) {
+//     if (car.isEngineOn === true) {
+//       car.speed -= n;
+//     } else {
+//       console.log(`Невозможно сбросить скорость`);
+//     }
+//   },
+//   engineToggle() {
+//     car.isEngineOn = true;
+//     return;
+//   },
+//   lightsToggle() {
+//     car.isLightsOn = true;
+//   },
+// };
+
+// car.engineToggle();
+// console.log(car.isEngineOn);
+// car.lightsToggle();
+// console.log(car.isLightsOn);
+
+// car.speedOn(100);
+// console.log(car.speed);
+// car.speedOf(50);
+// console.log(car.speed);
+
+// let engineToggle = function engineToggle() {
+//   car.isEngineOn = true;
+//   return;
+// };
+// let lightsToggle = function lightsToggle() {
+//   car.isLightsOn = true;
+// };
+// let speedOn = function speedOn(n) {
+//   if (isEngineOn === true) {
+//     car.speed += n;
+//     console.log(car.speed);
+//   } else {
+//     console.log(`Заведите машину`);
+//   }
+// };
+// let speedOf = function speedOf(n) {
+//   if (isEngineOn === true) {
+//     car.speed -= n;
+//     console.log(car.speed);
+//   } else {
+//     console.log(`Невозможно сбросить скорость`);
+//   }
+// };
+
+// !EX
+
+// "Увольте" сотрудника если он неактивен И(!) его зп больше 100
+// const workers = [
+//   { name: "Alex", salary: 100, isActive: true },
+//   { name: "Rita", salary: 80, isActive: false },
+//   { name: "John", salary: 100, isActive: true },
+//   { name: "Derek", salary: 200, isActive: false },
+// ];
+
+// let fairedWorker = function uFired(n) {
+//   for (let worker of workers) {
+//     if (worker.isActive === false && worker.salary > 100) {
+//       let indexOfWorker = workers.indexOf(worker);
+//       console.log(`${worker.name} U fired`);
+//       workers.splice(indexOfWorker, 1);
+//     }
+//   }
+//   console.log(workers);
+// };
+// fairedWorker(workers);
+
+// !EX
+
+// Напишите ф-цию, которая принимает аргументом массив обьектов и строку с названием камня.
+// Ф-ция считает сколько будет стоить то к-во камней, которой записано в объекте
+// const stones = [
+//   { name: "Изумруд", price: 1300, quantity: 4 },
+//   { name: "Бриллиант", price: 2700, quantity: 3 },
+//   { name: "Сапфир", price: 400, quantity: 7 },
+//   { name: "Щебень", price: 200, quantity: 2 },
+// ];
+// let wholePrice = 0;
+// let calculateWholePrice = function price(a, b) {
+//   for (let stone of b) {
+//     if (a === stone.name) {
+//       wholePrice = stone.price * stone.quantity;
+//     }
+//   }
+//   console.log(wholePrice);
+// };
+
+// calculateWholePrice(`Изумруд`, stones);
+// calculateWholePrice(`Бриллиант`, stones);
+// calculateWholePrice(`Сапфир`, stones);
+// calculateWholePrice(`Щебень`, stones);
+
+// !EX
+
+// const calculator = function (num, callback) {
+//   return callback(num);
+// };
+// const plus = function (num) {
+//   return Number(prompt("Enter your num: ")) + num;
+// };
+// const minus = function (num) {
+//   return prompt("Enter your num: ") - num;
+// };
+// let resultPlus = calculator(10, plus);
+// console.log(resultPlus);
+// let resultMinus = calculator(10, minus);
+// console.log(resultMinus);
+
+// !EX
+
+// // Напишите функцию которая принимает 3 параметра: название, цена, колбек
+// // Колбек создаёт объект с товаром и выводит его в консоль
+
+// const threeParameters = function (name, price, callback) {
+//   callback(name, price);
+// };
+
+// let callbackFunction = function (name, price) {
+//   let tovar = { name, price };
+//   emptyMassive.push(tovar);
+// };
+// let emptyMassive = [];
+// console.log(emptyMassive);
+
+// threeParameters(`Grisha`, 30, callbackFunction);
+// threeParameters(`Dima`, 20, callbackFunction);
+// threeParameters(`Sasha`, 25, callbackFunction);
+// threeParameters(`Kolya`, 35, callbackFunction);
+// threeParameters(`Vova`, 64, callbackFunction);
+
+// !EX
+
+// let money = 85;
+// Если стоимость машины меньше money вывести массив машин которые вы можете приобрести
+// const filter = function (arrayOfCars, money, callback) {
+//   const arrayOfNewCars = [];
+//   for (let car of arrayOfCars) {
+//     const passed = callback(car);
+//     if (passed) {
+//       arrayOfNewCars.push(car);
+//     }
+//   }
+//   console.log(arrayOfNewCars);
+// };
+
+// const priceOfCar = function (a) {
+//   return a.cost < money;
+// };
+
+// let cars = [
+//   { name: "ferrari", cost: 100 },
+//   { name: "lambo", cost: 90 },
+//   { name: "bmw", cost: 80 },
+//   { name: "subaru", cost: 60 },
+// ];
+// const priceOfcars = filter(cars, money, priceOfCar);
+
+// !EX
+
+// const counter = function (n) {
+//     let state = n;
+//     const onDecrement = function (n) {
+//         state -= n;
+//         console.log(state);
+//     }
+//     const onIncrement = function (n) {
+//         state += n;
+//         console.log(state);
+//     }
+//     return { onDecrement, onIncrement }
+// }
+// // counter() === {
+// //     onDecrement: <fn>,
+// //     onIncrement: <fn>
+// //     }
+// // counter().onIncrement();
+// // counter().onIncrement();
+// // counter().onIncrement();
+// let counterA = counter(10);
+// counterA.onIncrement(2);
+// counterA.onIncrement(10);
+// counterA.onIncrement(500);
+// counterA.onDecrement(500);
+// // let counterB = counter();
+// // counterB.onDecrement();
+// // counterB.onDecrement();
+// // counterB.onDecrement();
+// // counterB.onDecrement();
+// console.log(counter());
+
+// !EX
+
+// const shopMechanism = function () {
+//   let state = [];
+//   const addItem = function (name, price, color) {
+//     state.push({ name, price, color });
+//   };
+//   const discount = function () {
+//     for (let el of state) {
+//       el.price *= 0.9;
+//     }
+//   };
+//   const showCart = function () {
+//     console.log(state);
+//   };
+//   const clearCart = function () {
+//     state = [];
+//   };
+//   return { addItem, discount, showCart, clearCart };
+// };
+// let customerA = shopMechanism();
+// customerA.addItem("Guitar", 100, "black");
+// customerA.addItem("T-shirt", 30, "black");
+// customerA.addItem("Car", 1000, "black");
+// customerA.discount();
+// customerA.clearCart();
+// customerA.showCart();
+
+// !EX
+
+// Напишите функцию sum, которая работает таким образом: sum(a)(b) = a+b.
+// Да, именно таким образом, используя двойные круглые скобки (не опечатка).
+// Например:
+
+// const sum = function (a) {
+//   let sum = 0;
+//   return function makeSum(b) {
+//     sum = a + b;
+//     console.log(sum);
+//   };
+// };
+
+// sum(1)(2);
+// sum(5)(-1);
+
+// !EX
+
+// const carShopMechanism = function () {
+//   let carShopArr = [];
+//   let addItem = function (nameOfCar, colorOfCar, priceOfCar) {
+//     carShopArr.push({ nameOfCar, colorOfCar, priceOfCar });
+//     if (carShopArr.length > 5) {
+//       allCarsArr = [...allCarsArr, ...carShopArr.splice(0)];
+//     }
+//   };
+//   let clearCart = function () {
+//     carShopArr = [];
+//   };
+
+//   let showCart = function () {
+//     console.log(carShopArr);
+//   };
+//   let discount = function () {
+//     for (car of carShopArr) {
+//       car.priceOfCar *= 0.9;
+//     }
+//   };
+//   let addYear = function (n, name) {
+//     for (car of carShopArr) {
+//       if (car.nameOfCar === name) {
+//         car.nameOfCar = `${car.nameOfCar}-${n}`;
+//       }
+//     }
+//   };
+//   return { addItem, clearCart, showCart, discount, addYear };
+// };
+
+// let carShop = carShopMechanism();
+// let allCarsArr = [];
+// carShop.addItem(`BMW`, `Черный`, 340);
+// carShop.addItem(`Alfa Romeo`, `Желтый`, 430);
+// carShop.addItem(`Acura`, `Серый`, 3540);
+// carShop.addItem(`Aston Martin`, `Фиолетовый`, 3234140);
+// carShop.addItem(`Audi`, `Черный`, 12740);
+// carShop.addItem(`Bentley`, `Красный`, 7640);
+// carShop.addItem(`Bugatti`, `Синий`, 140);
+// carShop.addItem(`Buick`, `Красный`, 9440);
+// carShop.addItem(`Cadillac`, `Белый`, 28145740);
+// carShop.addItem(`Cadillac`, `Белый`, 28145740);
+// carShop.addItem(`Cadillac`, `Белый`, 28145740);
+// carShop.addItem(`Bugatti`, `Синий`, 140);
+// carShop.addItem(`Bugatti`, `Синий`, 140);
+// carShop.addItem(`Bugatti`, `Синий`, 140);
+// carShop.addItem(`Cadillac`, `Белый`, 28145740);
+// console.log(allCarsArr);
+// carShop.addYear(10, `Cadillac`);
+// carShop.showCart();
+
+// !EX
+
+// const greet = function () {
+//   console.log(
+//     `You've bought ${(this.weight && this.color) || ""} for ${
+//       this.price
+//     }, weight: ${this.weight || 0} `
+//   );
+// };
+// const hotel = { name: "Resort Hotel" };
+// const hotel2 = { name: "Rixos" };
+// // greet.call(hotel, 'Genadii');
+// // greet.apply(hotel2, ['Vasilii']);
+// const car1 = { name: "Ferrari", color: "red", price: 100 };
+// const car2 = { name: "BMW", color: "black", price: 80 };
+// // greet.call(car1);
+// // greet.call(car2);
+// let ferrari = greet.bind(car1);
+// let bmw = greet.bind(car2);
+// car2.weight = 100500;
+// ferrari();
+// bmw();
+
+// !EX
+
+// let obj, method;
+// obj = {
+//   go: function () {
+//     console.log(`this is:`, this);
+//   },
+// };
+
+// obj.go();
+// (method = obj.go)();
+// (obj.go || obj.stop).call(obj);
+
+// !EX
+
+// function makeUser() {
+//   return {
+//     name: `John`,
+//     ref: function () {
+//       return this.name;
+//     },
+//   };
+// }
+// let user = makeUser;
+// alert(user.ref());
+
+// !EX
+// Это ladder (лестница) – объект, который позволяет подниматься вверх и спускаться:
+// let ladder = {
+//   step: 0,
+//   up() {
+//     this.step++;
+//     return this;
+//   },
+//   down() {
+//     this.step--;
+//     return this;
+//   },
+//   showStep() {
+//     // показывает текущую ступеньку
+//     console.log(this.step);
+//     return this;
+//   },
+// };
+
+// Теперь, если нам нужно сделать несколько последовательных вызовов, мы можем выполнить это так:
+// ladder.up();
+// ladder.up();
+// ladder.down();
+// ladder.showStep(); // 1
+// Измените код методов up, down и showStep таким образом, чтобы их вызов можно было сделать по цепочке, например так:
+// ladder.up().up().up().showStep();
+
+// !EX
+
+// Вызов askPassword() в приведённом ниже коде должен проверить пароль и затем вызвать user.loginOk/loginFail в зависимости от ответа.
+// Однако, его вызов приводит к ошибке. Почему?
+// Исправьте выделенную строку, чтобы всё работало (других строк изменять не надо).
+
+// function askPassword(ok, fail) {
+//   let password = prompt("Password?", "");
+//   if (password == "rockstar") ok();
+//   else fail();
+// }
+// let user = {
+//   name: "Вася",
+//   loginOk() {
+//     alert(`${this.name} logged in`);
+//   },
+//   loginFail() {
+//     alert(`${this.name} failed to log in`);
+//   },
+// };
+// // let loginOK = user.loginOk.bind(user, user.name);
+// // let loginFail = user.loginFail.bind(user, user.name);
+// // askPassword(user.loginOk, user.loginFail);
+// askPassword(user.loginOk.bind(user), user.loginFail.bind(user));
+
+// !EX
+// Дан массив с числами(Написать самим). Ваша ф-я возвращает среднее арифметическое его элементов
+// let massive = [5, 6, 7, 8];
+
+// let middleNumber = function (n) {
+//   let sum = 0;
+//   let sredneeChislo = 0;
+//   for (let i = 0; i < n.length; i += 1) {
+//     sum += n[i];
+//   }
+//   sredneeChislo = sum / n.length;
+//   console.log(sum);
+//   console.log(sredneeChislo);
+// };
+
+// middleNumber(massive);
+// !EX
+// Нужно написать функцию, которая проверяет, являются ли две строки анаграммами, причем регистр букв не имеет значения. Учитываются лишь символы; пробелы или знаки препинания в расчет не берутся.
+// Анаграмма - слово, которое содержит все буквы другого слова в том же количестве, но ином порядке.
+// !EX
+// Напишите функцию f, которая будет обёрткой вокруг другой функции g. Функция f обрабатывает первый аргумент сама, а остальные аргументы передаёт в функцию g, сколько бы их ни было.
+
+// function f(n, ...arr) {
+//   /* ваш код */
+
+//   console.log(`${n}`, g(arr));
+// }
+// function g(arr) {
+//   let sum = 0;
+//   for (let el of arr) {
+//     sum += el;
+//   }
+//   return sum;
+// }
+// f("тест", 1, 2); // f выведет "тест", дальше g посчитает сумму "3"
+// f("тест2", 1, 2, 3);
+// f("тест3", 1, 2, 3, 4); // f выведет "тест2", дальше g посчитает сумму "6"
+// // Код функции f не должен зависеть от количества аргументов.
+// !EX
+
+// !EX
+
+// !EX
+
+// !EX
+
+// !EX
+
+// !EX
+
+// !EX
+
+// !EX
+
+// !EX
+
+// !EX
