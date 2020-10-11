@@ -586,7 +586,7 @@ mood : happy
 // console.log(calculateTotalPrice(products, "Дроид"));
 // // 2800
 
-// !MODULE 3
+// !MODULE 4
 // ? Задание 1
 // // Write code under this line
 // const addIndex = (element, index) => element + index;
@@ -753,3 +753,27 @@ mood : happy
 
 // console.log(arrayRemove);
 // // ['Knife', 'Medkit']
+
+
+// !MODULE 5
+
+// Write code under this line
+
+const Account = function (login, email) {
+    this.login = login;
+    this.email = email;
+    this.getInfo = function () {
+      return `login : ${this.login}, email: ${this.email} `;
+      };
+};
+
+console.log(typeof Account.prototype.getInfo);
+// 'function'
+
+const mango = new Account('Mangozedog', 'mango@dog.woof');
+console.log(mango.getInfo());
+// 'login : Mangozedog, email: mango@dog.woof'
+
+const poly = new Account('Poly', 'poly@mail.com');
+console.log(poly.getInfo());
+// 'login : Poly, email: poly@mail.com'

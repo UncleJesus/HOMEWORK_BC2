@@ -709,13 +709,255 @@
 // f("тест3", 1, 2, 3, 4); // f выведет "тест2", дальше g посчитает сумму "6"
 // // Код функции f не должен зависеть от количества аргументов.
 // !EX
+// const CarCreator = function(name, model, type, color) {
+// this.name = name;
+// this.model = model;
+// this.type = type;
+// this.color = color;
+// this.pi = 3.14;
+// this.presentation = function () {
+// console.log(`${this.name}, ${this.color}`)
+// }
+// this.soldTo = function(name) {
+//   console.log(`${this.name} was sold to ${name}`)
+// }
+// }
+// let ferrari = new CarCreator('Ferrari', '487', 'coupe', 'red');
+// let bmw = new CarCreator('BMW', '487', 'coupe', 'red');
+// ferrari.presentation();
+// bmw.presentation();
+// ferrari.maxSpeed = 420;
+// console.log(ferrari);
+// console.log(bmw);
+// ferrari.soldTo('Vasya');
+
+// !EX
+// Cоздайте ф - ю конструктор, ItemToSale принимающую параметрами(size, type, color)
+//  и содержащую метод для ведения статистики продаж saveToSatatistics.
+
+// let statstics = {
+//   soldGenaral: 0,
+//   soldTshirts: 0,
+//   soldJackets: 0,
+// };
+// const ItemToSale = function (size, type, color) {
+//   this.size = size;
+//   this.type = type;
+//   this.color = color;
+//   this.saveToSatatistics = function () {
+//     if (this.type === `Tshirt`) {
+//       statstics.soldGenaral += 1;
+//       statstics.soldTshirts += 1;
+//     }
+//     if (this.type === `Jacket`) {
+//       statstics.soldGenaral += 1;
+//       statstics.soldJackets += 1;
+//     }
+
+//     return statstics;
+//   };
+// };
+// let tshirt = new ItemToSale(`30`, `Tshirt`, `black`);
+// let jacket = new ItemToSale(`45`, `Jacket`, `green`);
+
+// tshirt.saveToSatatistics();
+// tshirt.saveToSatatistics();
+// tshirt.saveToSatatistics();
+// jacket.saveToSatatistics();
+// console.log(statstics);
+
+// !EX
+// Напишите ф-цию конструктор, которая будет создавать избирателя (name);
+// У избирателя будет метод vote(presidentName) который будет менят глобальный объект
+//  статистики голосов и добавлять туда ключ (имя избирателя) и значение (имя президента).
+// Один избиратель голосует только один раз(!)
+// В конце подсчитайте голоса и определите кто выиграл выборы
+
+// let allVotes = {};
+
+// const President = function (nameOfVoter) {
+//   this.nameOfVoter = nameOfVoter;
+//   this.vote = function (presidentName) {
+//     if (presidentName === `Bush`) {
+//       allVotes[presidentName] = `${this.nameOfVoter}`;
+//     }
+//     if (presidentName === `Trump`) {
+//       allVotes[presidentName] = `${this.nameOfVoter}`;
+//     }
+//     if (presidentName === `Obama`) {
+//       allVotes[presidentName] = `${this.nameOfVoter}`;
+//     }
+//     return allVotes;
+//   };
+// };
+// let voterDima = new President(`Dima`);
+// let voterOleg = new President(`Oleg`);
+// let voterArtem = new President(`Artem`);
+
+// voterDima.vote(`Obama`);
+// voterArtem.vote(`Trump`);
+// voterOleg.vote(`Bush`);
+// voterDima.vote(`Trump`);
+
+// console.log(allVotes);
+
+// !EX
+// Создайте функцию-конструктор Calculator, который создаёт объекты с тремя методами:
+// read() запрашивает два значения при помощи prompt и сохраняет их значение в свойствах объекта.
+// sum() возвращает сумму введённых свойств.
+// mul() возвращает произведение введённых свойств.
+// Например:
+// const Calculator = function () {
+//   this.read = function () {
+//     this.a = +prompt(`Введте а`);
+//     console.log(this.a);
+//     this.b = +prompt(`Введте b`);
+//     console.log(this.b);
+//   };
+//   this.sum = function () {
+//     return this.a + this.b;
+//   };
+//   this.mul = function () {
+//     return this.a * this.b;
+//   };
+// };
+// let calculator = new Calculator();
+// calculator.read();
+// alert("Sum=" + calculator.sum());
+// alert("Mul=" + calculator.mul());
+
+// !EX
+// Напишите функцию-конструктор Accumulator(startingValue).
+// Объект, который она создаёт, должен уметь следующее:
+// Хранить «текущее значение» в свойстве value. Начальное значение устанавливается в аргументе конструктора startingValue.
+// Метод read() использует prompt для получения числа и прибавляет его к свойству value.
+// Таким образом, свойство value является текущей суммой всего, что ввёл пользователь при вызовах метода read(), с учётом начального значения startingValue.
+// Ниже вы можете посмотреть работу кода:
+// let Accumulator = function (startingValue) {
+//   this.value = startingValue;
+//   this.read = function () {
+//     this.value += +prompt(`Введите число`);
+//     console.log(this.value);
+//   };
+// };
+// let accumulator = new Accumulator(1); // начальное значение 1
+// accumulator.read(); // прибавит ввод prompt к текущему значению
+// accumulator.read(); // прибавит ввод prompt к текущему значению
+// alert(accumulator.value); // выведет сумму этих значений
+// !EX
+// Создайте функцию конструктор Calculator, которая создаёт «расширяемые» объекты калькулятора.
+// Задание состоит из двух частей.
+// Во-первых, реализуйте метод calculate(str), который принимает строку типа "1 + 2" в формате «ЧИСЛО оператор ЧИСЛО» (разделено пробелами) и возвращает результат. Метод должен понимать плюс + и минус -.
+// Пример использования:
+// let calc = new Calculator;
+// alert( calc.calculate("3 + 7") ); // 10
+// Затем добавьте метод addMethod(name, func), который добавляет в калькулятор новые операции. Он принимает оператор name и функцию с двумя аргументами func(a,b), которая описывает его.
+// Например, давайте добавим умножение *, деление / и возведение в степень **:
+// let powerCalc = new Calculator;
+// powerCalc.addMethod("*", (a, b) => a * b);
+// powerCalc.addMethod("/", (a, b) => a / b);
+// powerCalc.addMethod("**", (a, b) => a ** b);
+// let result = powerCalc.calculate("2 ** 3");
+// alert( result ); // 8
+// Для этой задачи не нужны скобки или сложные выражения.
+// Числа и оператор разделены ровно одним пробелом.
+// !EX
+// class Animal {
+//   constructor(arr) {
+//     this.name = arr[0];
+//     this.nick = arr[1];
+//     this.breed = arr[2];
+//     this.sayMyow = function (randomVoice) {
+//       console.log(`${this.nick} says ${randomVoice}...  `);
+//     };
+//   }
+// }
+// let voices = ["Myow", "bark", "gav", "bleat"];
+// let randomVoice = voices[Math.round(Math.random() * (voices.length - 1))];
+// let cat = new Animal(["cat", "Piton", "britan"]);
+// cat.sayMyow(randomVoice);
+// !EX
+// Реализуйте класс Worker (Работник), который будет иметь следующие свойства: name (имя), surname (фамилия), rate (ставка за день работы), days (количество отработанных дней). Также класс должен иметь метод getSalary(), который будет выводить зарплату работника. Зарплата - это произведение (умножение) ставки rate на количество отработанных дней days.
+// Вот так должен работать наш класс:
+// class Worker {
+//   constructor(name, surname, rate, days) {
+//     this.name = name;
+//     this.surname = surname;
+//     this.rate = rate;
+//     this.days = days;
+//     this.getSalary = function () {
+//       return this.rate * this.days;
+//     };
+//   }
+// }
+
+// let worker = new Worker("Иван", "Иванов", 10, 31);
+// console.log(worker.name); //выведет 'Иван'
+// console.log(worker.surname); //выведет 'Иванов'
+// console.log(worker.rate); //выведет 10
+// console.log(worker.days); //выведет 31
+// console.log(worker.getSalary()); //выведет 310 - то есть 10*31
 
 // !EX
 
-// !EX
+// Модифицируйте класс Worker из предыдущей задачи следующим образом: сделайте все его свойства приватными,
+// а для их чтения сделайте методы - геттеры.Наш класс теперь будет работать так:
+// class Worker {
+//   constructor(name, surname, rate, days) {
+//     this.name = name;
+//     this.surname = surname;
+//     this.rate = rate;
+//     this.days = days;
+//     this.getSalary = function () {
+//       return this.rate * this.days;
+//     };
+//   }
+// }
+
+// let worker = new Worker("Иван", "Иванов", 10, 31);
+// console.log(worker.name); //выведет 'Иван'
+// console.log(worker.surname); //выведет 'Иванов'
+// console.log(worker.rate); //выведет 10
+// console.log(worker.days); //выведет 31
+// console.log(worker.getSalary()); //выведет 310 - то есть 10*31
 
 // !EX
+// Модифицируйте класс Worker из предыдущей задачи следующим образом: для свойства rate и для свойства days сделайте еще и методы-сеттеры.
+// Наш класс теперь будет работать так:
+// class Worker {
+//   constructor(name, surname, rate, days) {
+//     this.name = name;
+//     this.surname = surname;
+//     this.rate = rate;
+//     this.days = days;
+//   }
 
+//   getSalary() {
+//     return this.rate * this.days;
+//   }
+
+//   set setRate(value) {
+//     this.rate = value;
+//   }
+//   set setDays(value) {
+//     this.days = value;
+//   }
+// }
+
+// let worker = new Worker("Иван", "Иванов", 10, 31);
+// console.log(worker.name); //выведет 'Иван'
+// console.log(worker.surname); //выведет 'Иванов'
+// console.log(worker.rate); //выведет 10
+// console.log(worker.days); //выведет 31
+// console.log(worker.getSalary()); //выведет 310 - то есть 10*31
+
+// !EX
+// Реализуйте класс MyString, который будет иметь следующие методы: метод reverse(), который параметром принимает строку, а возвращает ее в перевернутом виде, метод ucFirst(), который параметром принимает строку, а возвращает эту же строку, сделав ее первую букву заглавной и метод ucWords, который принимает строку и делает заглавной первую букву каждого слова этой строки.
+// Наш класс должен работать так:
+// let str = new MyString();
+// console.log(str.reverse('abcde')); //выведет 'edcba'
+// console.log(str.ucFirst('abcde')); //выведет 'Abcde'
+// console.log(str.ucWords('abcde abcde abcde')); //выведет 'Abcde Abcde Abcde'
 // !EX
 
 // !EX
