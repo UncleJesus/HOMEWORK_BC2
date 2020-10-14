@@ -959,7 +959,120 @@
 // console.log(str.ucFirst('abcde')); //выведет 'Abcde'
 // console.log(str.ucWords('abcde abcde abcde')); //выведет 'Abcde Abcde Abcde'
 // !EX
+// const inventors = [
+//   {
+//     first: "Albert",
+//     last: "Einstein",
+//     year: 1879,
+//     passed: 1955,
+//   },
+//   {
+//     first: "Isaac",
+//     last: "Newton",
+//     year: 1643,
+//     passed: 1727,
+//   },
+//   {
+//     first: "Galileo",
+//     last: "Galilei",
+//     year: 1564,
+//     passed: 1642,
+//   },
+//   {
+//     first: "Marie",
+//     last: "Curie",
+//     year: 1867,
+//     passed: 1934,
+//   },
+//   {
+//     first: "Johannes",
+//     last: "Kepler",
+//     year: 1571,
+//     passed: 1630,
+//   },
+//   {
+//     first: "Nicolaus",
+//     last: "Copernicus",
+//     year: 1473,
+//     passed: 1543,
+//   },
+//   {
+//     first: "Max",
+//     last: "Planck",
+//     year: 1858,
+//     passed: 1947,
+//   },
+//   {
+//     first: "Katherine",
+//     last: "Blodgett",
+//     year: 1898,
+//     passed: 1979,
+//   },
+//   {
+//     first: "Ada",
+//     last: "Lovelace",
+//     year: 1815,
+//     passed: 1852,
+//   },
+//   {
+//     first: "Sarah E.",
+//     last: "Goode",
+//     year: 1855,
+//     passed: 1905,
+//   },
+//   {
+//     first: "Lise",
+//     last: "Meitner",
+//     year: 1878,
+//     passed: 1968,
+//   },
+//   {
+//     first: "Hanna",
+//     last: "Hammarström",
+//     year: 1829,
+//     passed: 1909,
+//   },
+// ];
 
+// // ?- Вывести массив имён учёных/изобретателей
+
+// const namesOfInventors = inventors.map(
+//   (inventor) => `${inventor.first} ` + `${inventor.last}`
+// );
+// console.log(namesOfInventors);
+
+// // ?- Вывести массив тех кто родился в 19-ом веке
+
+// const namesOfInventorsWhoBorn = inventors.filter((inventor) => {
+//   if (19 === Math.floor(inventor.year / 100 + 1)) {
+//     return inventor;
+//   }
+// });
+// console.log(namesOfInventorsWhoBorn);
+
+// //? - Вывести массив тех, кто прожил больше 50-ти лет
+// const namesOfInventorsWho50YearsOld = inventors.filter((inventor) => {
+//   if (inventor.passed - inventor.year > 50) {
+//     return inventor;
+//   }
+// });
+// console.log(namesOfInventorsWho50YearsOld);
+
+// // ?- Вывести фамилии тех, в чьём имени есть буква "е"
+
+// const e = inventors.filter((el) => {
+//   return el.first.includes(`e`) || el.first.includes(`E`);
+// });
+
+// //? - Получить массив объектов отсортированный по имени (по алфавиту).
+// const n = inventors.map((el) => el.first).sort();
+// console.log(n);
+
+// //? - Найти сумму лет жизни всех учёных
+// const s = inventors.reduce((sum, el) => {
+//   return (sum += el.passed - el.year);
+// }, 0);
+// console.log(s);
 // !EX
 
 // !EX
