@@ -1074,6 +1074,13 @@
 // }, 0);
 // console.log(s);
 // !EX
+const ul = document.querySelector(`ul`);
+
+for (let i = 0; i <= 3; i++) {
+  let li = document.createElement(`li`);
+  li.textContent = `HELLO WORLD`;
+  ul.append(li);
+}
 
 // !EX
 

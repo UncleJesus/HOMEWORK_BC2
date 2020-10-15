@@ -1227,3 +1227,29 @@ const getSortedUniqueSkills = (array) => {
   return result;
 };
 console.log(getSortedUniqueSkills(users));
+
+// const getSortedUniqueSkills = (array) => {
+//   const result = array
+//     .reduce((allSkills, elem) => {
+//       if (!allSkills.includes(elem.skills)) {
+//         allSkills = [...elem.skills, ...allSkills];
+//       }
+//       return allSkills;
+//     }, [])
+//     .sort();
+
+//   return result;
+// };
+// console.log(getSortedUniqueSkills(users));
+const getSortedUniqueSkills = (array) => {
+  let skills = array
+    .reduce((acc, el) => {
+      let ununiq = !acc.includes(el.skills) ? [...acc, ...el.skills] : "";
+      let uniq = ununiq.reduce((acc, el) => {
+        !acc.includes(el) ? (acc = [...acc, el]) : "";
+        return acc;
+      }, []);
+      return uniq;
+    }, [])
+    .sort();
+};
