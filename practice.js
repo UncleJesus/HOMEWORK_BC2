@@ -1074,17 +1074,35 @@
 // }, 0);
 // console.log(s);
 // !EX
-const ul = document.querySelector(`ul`);
+// const body = document.querySelector(`body`);
+// const ul = document.querySelector(`ul`);
 
-for (let i = 0; i <= 3; i++) {
-  let li = document.createElement(`li`);
-  li.textContent = `HELLO WORLD`;
-  ul.append(li);
+// let li;
+// for (let i = 0; i < 5; i++) {
+//   li = document.createElement(`li`);
+//   li.classList.add(`round`);
+//   ul.append(li);
+// }
+
+// !EX
+// const body = document.querySelector(`body`);
+// for (let i = 0; i < 5; i++) {
+//   const div = document.createElement(`div`);
+//   div.classList.add(`round`);
+//   body.append(div);
+// }
+// const divList = document.querySelectorAll(`div`);
+// divList.forEach((el, i) => {
+//   el.textContent = `${i + 1}`;
+// });
+// !EX
+const body = document.querySelector(`body`);
+for (let index = 0; index < 3; index++) {
+  const img = document.createElement(`img`);
+  body.append(img);
+  let random = Math.floor(Math.random() * 200);
+  img.src = `https://picsum.photos/id/${random}/200/300`;
 }
-
-// !EX
-
-// !EX
 
 // !EX
 
