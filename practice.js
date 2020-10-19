@@ -1096,14 +1096,54 @@
 //   el.textContent = `${i + 1}`;
 // });
 // !EX
-const body = document.querySelector(`body`);
-for (let index = 0; index < 3; index++) {
-  const img = document.createElement(`img`);
-  body.append(img);
-  let random = Math.floor(Math.random() * 200);
-  img.src = `https://picsum.photos/id/${random}/200/300`;
-}
+// const body = document.querySelector(`body`);
+// for (let index = 0; index < 3; index++) {
+//   const img = document.createElement(`img`);
+//   body.append(img);
+//   let random = Math.floor(Math.random() * 200);
+//   img.src = `https://picsum.photos/id/${random}/200/300`;
+// }
 
 // !EX
+window.addEventListener(
+  "scroll",
+  _.throttle(() => {
+    console.log("Scroll event handler invocation every 300ms.");
+  }, 300)
+);
 
+document.querySelector("input").addEventListener(
+  "input",
+  _.debounce(() => {
+    console.log(
+      "Input event handler invocation after 300ms of inactivity past burst."
+    );
+  }, 300)
+);
+
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
+// !EX
 // !EX
