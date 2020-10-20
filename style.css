@@ -11,3 +11,16 @@
 body {
   height: 400vh;
 }
+
+li {
+  list-style: none;
+  width: 320px;
+}
+.fullview {
+  display: flex;
+  justify-content: center;
+}
+.preview {
+  display: flex;
+  justify-content: center;
+}
