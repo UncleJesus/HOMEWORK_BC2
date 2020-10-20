@@ -1120,12 +1120,51 @@
 //     );
 //   }, 300)
 // );
-import gallery from `./gallery.js`;
+// import gallery from `./gallery.js`;
 
 // !EX
+// /1) Дан ul, в нем несколько li. Под ul сделайте кнопку, по нажатию на которую в конец ul будет добавляться новый
+// li с текстом 'пункт'.
+// const itemList = document.querySelector("ul");
+// const button = document.querySelector(".buttonLi");
+// const addItemToUl = () => {
+//   const li = document.createElement(`li`);
+//   li.textContent = `Пункт`;
+//   itemList.append(li);
+//   return itemList;
+// };
 
+// const addItemOnLi = (event) => {
+//   event.target.nodeName === `LI` ? (event.target.textContent += ` !`) : ``;
+// };
+// itemList.addEventListener(`click`, addItemOnLi);
+// button.addEventListener(`click`, addItemToUl);
+
+// Это должно работать и для вновь добавленных li.
+// Задачу решите с помощью делегирования (то есть событие должно быть навешано на ul).
 // !EX
+// const ul = document.querySelector("ul");
+// const li = document.querySelector("li");
+// const form = document.querySelector("form");
+// const btn = document.querySelector("#submit-btn");
+// const text = document.querySelector("p");
+// const input = document.querySelector("input");
+
+// const changeElemText = (elem) => {
+//   const name = prompt(`Введите свое Имя`);
+//   elem.target.textContent = name;
+// };
+// const addElement = (elem) => {
+//   elem.preventDefault();
+//   ul.insertAdjacentHTML(`beforeend`, `<li><p>${input.value}</p></li>`);
+// };
+// text.addEventListener(`click`, changeElemText);
+// form.addEventListener(`submit`, addElement);
+//2) Дан список с именами юзеров ul>li>p. Под таблицей сделайте форму form>input+input, с помощью которой можно будет добавить нового юзера в список.
+//  Сделайте так, чтобы при клике на любой елемент появлялся prompt, с помощью которого можно изменить текст имени.
+//  Задачу решите с помощью делегирования (то есть событие должно быть навешано на ul).
 // !EX
+
 // !EX
 // !EX
 // !EX
