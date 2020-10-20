@@ -1173,6 +1173,37 @@ const galleryItems = [
   { preview: "./img/6s.jpeg", fullview: "./img/6L.jpeg", alt: "alt text 6" },
 ];
 
+const image = document.querySelector(".image-gallery");
+const fullview = document.querySelector(".fullview");
+const preview = document.querySelector(".preview");
+
+galleryItems.forEach((el) => {
+  preview.insertAdjacentHTML(
+    "beforeend",
+    `<li class = "gallery-item">
+  <img class = "gallery-img"
+  width = "320"
+  src = "${el.preview}" 
+  data-fullview ="${el.fullview}" 
+  alt ="${el.alt}"/>
+  </li>`
+  );
+});
+
+fullview.insertAdjacentHTML(
+  "beforeend",
+  `<img class = "fullview-img" 
+ width = "1280"
+ src=${galleryItems[0].fullview}
+ alt=${galleryItems[0].alt}/>`
+);
+
+const getPicture = function (e) {
+  e.target.nodeName === "IMG"
+    ? (document.querySelector(".fullview-img").src = e.target.dataset.fullview)
+    : ``;
+};
+preview.addEventListener(`click`, getPicture);
 // !EX
 // !EX
 // !EX
