@@ -1164,47 +1164,67 @@
 //  Сделайте так, чтобы при клике на любой елемент появлялся prompt, с помощью которого можно изменить текст имени.
 //  Задачу решите с помощью делегирования (то есть событие должно быть навешано на ul).
 // !EX
-const galleryItems = [
-  { preview: "./img/1s.jpeg", fullview: "./img/1L.jpeg", alt: "alt text 1" },
-  { preview: "./img/2s.jpeg", fullview: "./img/2L.jpeg", alt: "alt text 2" },
-  { preview: "./img/3s.jpeg", fullview: "./img/3L.jpeg", alt: "alt text 3" },
-  { preview: "./img/4s.jpeg", fullview: "./img/4L.jpeg", alt: "alt text 4" },
-  { preview: "./img/5s.jpeg", fullview: "./img/5L.jpeg", alt: "alt text 5" },
-  { preview: "./img/6s.jpeg", fullview: "./img/6L.jpeg", alt: "alt text 6" },
-];
+// const galleryItems = [
+//   { preview: "./img/1s.jpeg", fullview: "./img/1L.jpeg", alt: "alt text 1" },
+//   { preview: "./img/2s.jpeg", fullview: "./img/2L.jpeg", alt: "alt text 2" },
+//   { preview: "./img/3s.jpeg", fullview: "./img/3L.jpeg", alt: "alt text 3" },
+//   { preview: "./img/4s.jpeg", fullview: "./img/4L.jpeg", alt: "alt text 4" },
+//   { preview: "./img/5s.jpeg", fullview: "./img/5L.jpeg", alt: "alt text 5" },
+//   { preview: "./img/6s.jpeg", fullview: "./img/6L.jpeg", alt: "alt text 6" },
+// ];
 
-const image = document.querySelector(".image-gallery");
-const fullview = document.querySelector(".fullview");
-const preview = document.querySelector(".preview");
+// const image = document.querySelector(".image-gallery");
+// const fullview = document.querySelector(".fullview");
+// const preview = document.querySelector(".preview");
 
-galleryItems.forEach((el) => {
-  preview.insertAdjacentHTML(
-    "beforeend",
-    `<li class = "gallery-item">
-  <img class = "gallery-img"
-  width = "320"
-  src = "${el.preview}" 
-  data-fullview ="${el.fullview}" 
-  alt ="${el.alt}"/>
-  </li>`
-  );
-});
+// galleryItems.forEach((el) => {
+//   preview.insertAdjacentHTML(
+//     "beforeend",
+//     `<li class = "gallery-item">
+//   <img class = "gallery-img"
+//   width = "320"
+//   src = "${el.preview}"
+//   data-fullview ="${el.fullview}"
+//   alt ="${el.alt}"/>
+//   </li>`
+//   );
+// });
 
-fullview.insertAdjacentHTML(
-  "beforeend",
-  `<img class = "fullview-img" 
- width = "1280"
- src=${galleryItems[0].fullview}
- alt=${galleryItems[0].alt}/>`
-);
+// fullview.insertAdjacentHTML(
+//   "beforeend",
+//   `<img class = "fullview-img"
+//  width = "1280"
+//  src=${galleryItems[0].fullview}
+//  alt=${galleryItems[0].alt}/>`
+// );
 
-const getPicture = function (e) {
-  e.target.nodeName === "IMG"
-    ? (document.querySelector(".fullview-img").src = e.target.dataset.fullview)
-    : ``;
-};
-preview.addEventListener(`click`, getPicture);
+// const getPicture = function (e) {
+//   e.target.nodeName === "IMG"
+//     ? (document.querySelector(".fullview-img").src = e.target.dataset.fullview)
+//     : ``;
+// };
+// preview.addEventListener(`click`, getPicture);
 // !EX
+const start = document.querySelector(".start");
+const stop = document.querySelector(".stop");
+const timer = document.querySelector(".timer");
+
+let time = 0;
+let intervalId;
+const startTimer = function () {
+  intervalId = setInterval(() => {
+    timer.textContent = (time += 1) + `s`;
+  }, 1000);
+  start.setAttribute(`disabled`, true);
+};
+
+const stopTimer = function () {
+  clearInterval(intervalId);
+};
+
+start.addEventListener("click", startTimer);
+stop.addEventListener("click", stopTimer);
+
 // !EX
 // !EX
 // !EX
