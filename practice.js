@@ -1213,13 +1213,14 @@ let time = 0;
 let intervalId;
 const startTimer = function () {
   intervalId = setInterval(() => {
-    timer.textContent = (time += 1) + `s`;
-  }, 1000);
+    timer.textContent = (time += 1) / 10 + `s`;
+  }, 100);
   start.setAttribute(`disabled`, true);
 };
 
 const stopTimer = function () {
   clearInterval(intervalId);
+  start.setAttribute(`disabled`, false);
 };
 
 start.addEventListener("click", startTimer);
