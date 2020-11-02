@@ -1235,19 +1235,27 @@
 
 // fn().then((data) => console.log(data));
 // !EX
-let url = "https://pokeapi.co/api/v2/pokemon/ditto";
-const fn = async function (url) {
-  let response = await fetch(url);
-  if (response.status === 200) {
-    let result = await response.json();
-    return result;
-  } else {
-    console.error(`Error ${response.status}`);
-  }
-};
-console.log(fn(url));
+// let url = "https://pokeapi.co/api/v2/pokemon/ditto";
+// const fn = async function (url) {
+//   let response = await fetch(url);
+//   if (response.status === 200) {
+//     let result = await response.json();
+//     return result;
+//   } else {
+//     console.error(`Error ${response.status}`);
+//   }
+// };
+// console.log(fn(url));
 
 // !EX
+async function wait() {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  return 10;
+}
+function f() {
+  wait().then((data) => console.log(data));
+}
+f();
 // !EX
 // !EX
 // !EX
