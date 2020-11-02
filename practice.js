@@ -1205,29 +1205,48 @@
 // };
 // preview.addEventListener(`click`, getPicture);
 // !EX
-const start = document.querySelector(".start");
-const stop = document.querySelector(".stop");
-const timer = document.querySelector(".timer");
+// const start = document.querySelector(".start");
+// const stop = document.querySelector(".stop");
+// const timer = document.querySelector(".timer");
 
-let time = 0;
-let intervalId;
-const startTimer = function () {
-  intervalId = setInterval(() => {
-    timer.textContent = (time += 1) / 10 + `s`;
-  }, 100);
-  start.setAttribute(`disabled`, true);
-};
+// let time = 0;
+// let intervalId;
+// const startTimer = function () {
+//   intervalId = setInterval(() => {
+//     timer.textContent = (time += 1) / 10 + `s`;
+//   }, 100);
+//   start.setAttribute(`disabled`, true);
+// };
 
-const stopTimer = function () {
-  clearInterval(intervalId);
-  start.setAttribute(`disabled`, false);
-};
+// const stopTimer = function () {
+//   clearInterval(intervalId);
+//   start.setAttribute(`disabled`, false);
+// };
 
-start.addEventListener("click", startTimer);
-stop.addEventListener("click", stopTimer);
+// start.addEventListener("click", startTimer);
+// stop.addEventListener("click", stopTimer);
 
 // !EX
+// const fn = async function () {
+//   let result = await fetch("https://pokeapi.co/api/v2/pokemon/ditto");
+//   let f = result.json();
+//   return f;
+// };
+
+// fn().then((data) => console.log(data));
 // !EX
+let url = "https://pokeapi.co/api/v2/pokemon/ditto";
+const fn = async function (url) {
+  let response = await fetch(url);
+  if (response.status === 200) {
+    let result = await response.json();
+    return result;
+  } else {
+    console.error(`Error ${response.status}`);
+  }
+};
+console.log(fn(url));
+
 // !EX
 // !EX
 // !EX
